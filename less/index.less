@@ -51,14 +51,49 @@ table {
 }
 
 /* Set every element's box-sizing to border-box */
+.center {
+	display: flex;
+	justify-content: center;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@skills-color: lightblue;
+
 * {
     box-sizing: border-box;
 }
 
 html, body {
 	height: 100%;
-	padding-left: 7%;
-	padding-right: 7%;
+	padding-left: 10%;
+	padding-right: 10%;
+	font-family: 'Lato', sans-serif;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	padding: 2% 0;
+}
+
+h4 {
+	font-size: 1.26rem;
+	font-weight: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main-content {
+	.flex-column();
 }
 
 
@@ -71,11 +106,159 @@ header {
 		display: flex;
 		justify-content: flex-end;
 
+		a:last-child {
+			padding-right: 0px;
+		}
+
 		a {
 			padding: 0 3%;
-			text-decoration: none;
 			color: black;
 		}
+	} // end nav
+	
+}
+
+#info-top {
+	.center();
+	margin: auto;
+	background-color: #e6eced;
+	padding: 7% 4%;
+	border-radius: 7px;
+
+	h4 {
+		padding: 1% 0;
+	}
+
+	.profile-img {
+		width: 35%;
+		padding-bottom: 1.5%;
+	}
+
+	.line {
+		border-bottom: 1px solid gray;
+	}
+
+	p {
+		padding-top: 1%;
+		padding-bottom: 1%;
+	}
+
+	a {
+		color: white;
+		background-color: slategray;
+		width: 13.3%;
+		padding: 1.7%;
+		border-radius: 4px;
+		font-weight: 200;
+	}
+}
+
+.info-middle {
+	display: flex;
+	line-height: 1.5;	
+
+	#about {
+		width: 50%;
+		padding: 1%;
+
+		h2 {
+			padding: 2% 0;
+		}
+
+		p {
+			width: 95%;
+		}
+	}
+
+	#skills {
+		width: 50%;
+		padding: 1%;
+
+		h2 {
+			padding: 2% 0;
+		}
+
+		ul {
+			border: 1px solid @skills-color;
+			border-radius: 6px;
+		}
+		
+		li {
+			border-top: 1px solid @skills-color;
+			padding: 2%;
+		}
+
+		li:last-child {
+			border-bottom: 0px solid @skills-color;
+		}
+
+		li:first-child {
+			border-top: 0px solid @skills-color;
+		}
+	}
+}
+
+.info-bottom {
+	.flex-column();
+	padding: 1% 0;
+	padding-bottom: 8%;
+
+	h2 {
+		padding: 2% 0;
+	}
+
+	ul {
+		border: 1px solid black;
+		border-radius: 6px;
 	}
 	
+	li {
+		border-top: 1px solid black;
+		padding: 2%;
+	}
+
+	li:last-child {
+		border-bottom: 0px solid black;
+	}
+
+	li:first-child {
+		border-top: 0px solid black;
+	}
+}
+
+@media (max-width: 500px) {
+	html, body {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+	header {
+		padding: 5% 0;
+
+		nav {
+			justify-content: center;
+		}
+	}
+
+	#info-top {
+		a {
+			width: 20%;
+			padding: 3%;
+		}
+	}
+
+	.info-middle {
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		padding: 10% 0;
+
+		#about {
+			width: 90%;
+		}
+
+		#skills {
+			width: 90%;
+		}
+	}
 }
